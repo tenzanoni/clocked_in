@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
 * Database initialization
+```bash
+rails db:setup
+rails db:migrate
+rails db:seed #to create sample user data
+```
+* API Docs
 
-* How to run the test suite
+View current user time tracks
 
-* Services (job queues, cache servers, search engines, etc.)
+(default is first user, you can specific another user by passing `assign_user_id` params for testing)
+```
+GET /v1/time_tracks
+```
 
-* Deployment instructions
+Create time tracks
+```
+POST /v1/time_tracks
+```
 
-* ...
+Follow user
+
+```
+POST /v1/follows/follow
+params: {
+        	"user_follow": {
+        		"followed_user_id": user_id
+        	}
+        }
+```
+
+Unfollow user
+```
+DELETE /v1/follows/:follow_id/follow
+```
+
+View time track of a following user
+```
+GET /v1/follows/:follow_id/time_tracks
+```
