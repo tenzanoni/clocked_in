@@ -11,3 +11,14 @@ puts 'Creating Users...'
   User.create(name: uname)
 end
 
+puts 'Creating Time tracks...'
+
+User.all.each do |user|
+  5.times.each do
+    user.time_tracks.create(
+      sleep_at: Time.now - 7.days + (1..5).to_a.sample.hours,
+      wakeup_at: Time.now - 7.days + (7..13).to_a.sample.hours,
+      created_at: Time.now - 7.days
+    )
+  end
+end
