@@ -4,9 +4,9 @@ Rails.application.routes.draw do
     namespace 'v1' do
       resources :follows, only: [] do
         get :time_tracks
+        delete :unfollow
         collection do
           post :follow
-          delete :unfollow
         end
       end
 

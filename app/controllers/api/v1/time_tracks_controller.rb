@@ -14,7 +14,10 @@ module Api
         if @time_track.save
           render json: { status: :ok }
         else
-          render status: :unprocessable_entity, json: { status: :unprocessable_entity, errors: { message: @time_track.errors } }
+          render status: :unprocessable_entity, json: {
+            status: :unprocessable_entity,
+            errors: { message: @time_track.errors }
+          }
         end
       end
 
