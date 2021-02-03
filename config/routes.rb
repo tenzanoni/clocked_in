@@ -13,4 +13,5 @@ Rails.application.routes.draw do
       resources :time_tracks, only: [:index, :create]
     end
   end
+  get '*path', controller: 'application', action: 'render_404'
 end
