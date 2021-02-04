@@ -1,5 +1,10 @@
 # README
 
+* Running test
+```
+rspec spec/
+```
+
 * Database initialization
 ```bash
 rails db:setup
